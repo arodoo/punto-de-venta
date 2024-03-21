@@ -1,0 +1,33 @@
+<div class="mt-3">
+
+    <form [formGroup]="ventaForm" (ngSubmit)="onSubmit()" class="mt-4">
+        <h1 class="mb-4">Detalle de la venta</h1>
+        <div class="row">
+            <div class="col">
+                <div formArrayName="productos" *ngFor="let producto of productos.controls; let i=index" class="mb-3">
+                    <div [formGroupName]="i" class="row">
+                      <div class="col">
+                        <label class="form-label">Producto:</label>
+                        <select formControlName="producto" class="form-control">
+                            <option value="">Seleccionar un producto</option>
+                            <option *ngFor="let producto of listaProductos" [value]="producto.id">{{producto.nombre}}</option>
+                        </select>
+                      </div>
+                      <div class="col">
+                        <label class="form-label">Cantidad:</label>
+                        <input formControlName="cantidad" type="number" placeholder="Cantidad" class="form-control">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              <div class="col">
+                  <button (click)="agregarProducto()" class="btn btn-primary mb-3">+</button>
+              </div>
+        </div>
+        
+        
+        <button type="submit" class="btn btn-success">Enviar</button>
+      </form>
+  </div>
+  
+  

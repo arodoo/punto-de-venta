@@ -1,1 +1,37 @@
-<p>empleados works!</p>
+<div class="mt-3" style="width: 40%;">
+    <h1>Agregar empleado</h1><br>
+    <form [formGroup]="empleadoForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="nombre">Nombre:</label>
+        <input type="text" class="form-control" id="nombre" formControlName="nombre" placeholder="Ingresa tu nombre">
+      </div><br>
+      <div class="form-group">
+        <label for="apellidoPaterno">Apellido Paterno:</label>
+        <input type="text" class="form-control" id="apellidoPaterno" formControlName="apellidoPaterno" placeholder="Ingresa tu apellido paterno">
+      </div><br>
+      <div class="form-group">
+        <label for="apellidoMaterno">Apellido Materno:</label>
+        <input type="text" class="form-control" id="apellidoMaterno" formControlName="apellidoMaterno" placeholder="Ingresa tu apellido materno">
+      </div><br>
+      <div class="form-group">
+        <label for="rfc">RFC:</label>
+        <input type="text" class="form-control" id="rfc" formControlName="rfc" placeholder="Ingresa tu RFC">
+        <div *ngIf="empleadoForm.get('rfc')?.errors?.['invalidLength']" class="text-danger">
+            CURP debe tener 13 caracteres.
+          </div>
+      </div><br>
+      <div class="form-group">
+        <label for="fechaNacimiento">Fecha de Nacimiento:</label>
+        <input type="date" class="form-control" id="fechaNacimiento" formControlName="fechaNacimiento">
+      </div><br>
+      <div class="form-group">
+        <label for="curp">CURP:</label>
+        <input type="text" class="form-control" id="curp" formControlName="curp" placeholder="Ingresa tu CURP">
+        <div *ngIf="empleadoForm.get('curp')?.errors?.['invalidLength']" class="text-danger">
+            CURP debe tener 18 caracteres.
+          </div>
+      </div><br>
+      <button type="submit" class="btn btn-primary" [disabled]="!empleadoForm.valid">Enviar</button>
+    </form>
+  </div>
+  
