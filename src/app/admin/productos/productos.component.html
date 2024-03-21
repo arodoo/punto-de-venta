@@ -1,4 +1,7 @@
 <div class="mt-3" style="width: 40%;">
+  <div *ngIf="success" class="alert alert-success">
+    Producto guardado correctamente
+  </div>
     <h1>Agregar producto</h1><br>
     <form [formGroup]="productoForm" (ngSubmit)="onSubmit()">
         <div class="form-group">
@@ -7,7 +10,7 @@
           </div><br>
       <div class="form-group">
         <label for="nombre">Nombre:</label>
-        <input type="text" class="form-control" id="nombre" formControlName="nombre" placeholder="Nombre del producto">
+        <input type="text" class="form-control" id="nombre" formControlName="nombreProducto" placeholder="Nombre del producto">
       </div><br>
       
       <div class="form-group">

@@ -13,10 +13,11 @@ import { HttpClient } from '@angular/common/http';
   styleUrl: './empleados.component.css'
 })
 export class EmpleadosComponent {
+  success = false;
   empleadoForm = this.fb.group({
     nombre: ['', Validators.required],
-    apellidoPaterno: ['', Validators.required],
-    apellidoMaterno: ['', Validators.required],
+    apPaterno: ['', Validators.required],
+    apMaterno: ['', Validators.required],
     rfc: ['', [Validators.required, this.lengthValidator(13)]],
     fechaNacimiento: ['', Validators.required],
     curp: ['', [Validators.required, this.lengthValidator(18)]]
@@ -27,10 +28,11 @@ export class EmpleadosComponent {
   onSubmit() {
     if (this.empleadoForm.valid) {
       const formData = this.empleadoForm.value;
+      console.log(formData)
       this.http.post('http://localhost:8080/api/v1/empleados', formData).subscribe(
         (response) => {
           console.log('Datos enviados con éxito:', response);
-         
+          this.success = true;
         },
         (error) => {
           console.error('Error al enviar los datos:', error);

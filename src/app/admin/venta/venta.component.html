@@ -10,7 +10,7 @@
                         <label class="form-label">Producto:</label>
                         <select formControlName="producto" class="form-control">
                             <option value="">Seleccionar un producto</option>
-                            <option *ngFor="let producto of listaProductos" [value]="producto.id">{{producto.nombre}}</option>
+                            <option *ngFor="let producto of listaProductos" [value]="producto.clave">{{producto.nombreProducto}}</option>
                         </select>
                       </div>
                       <div class="col">

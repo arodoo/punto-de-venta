@@ -1,5 +1,9 @@
 <div class="mt-3" style="width: 40%;">
+  <div *ngIf="success" class="alert alert-success">
+    Empleado guardado correctamente
+  </div>
     <h1>Agregar empleado</h1><br>
+
     <form [formGroup]="empleadoForm" (ngSubmit)="onSubmit()">
       <div class="form-group">
         <label for="nombre">Nombre:</label>
@@ -7,11 +11,11 @@
       </div><br>
       <div class="form-group">
         <label for="apellidoPaterno">Apellido Paterno:</label>
-        <input type="text" class="form-control" id="apellidoPaterno" formControlName="apellidoPaterno" placeholder="Ingresa tu apellido paterno">
+        <input type="text" class="form-control" id="apellidoPaterno" formControlName="apPaterno" placeholder="Ingresa tu apellido paterno">
       </div><br>
       <div class="form-group">
         <label for="apellidoMaterno">Apellido Materno:</label>
-        <input type="text" class="form-control" id="apellidoMaterno" formControlName="apellidoMaterno" placeholder="Ingresa tu apellido materno">
+        <input type="text" class="form-control" id="apellidoMaterno" formControlName="apMaterno" placeholder="Ingresa tu apellido materno">
       </div><br>
       <div class="form-group">
         <label for="rfc">RFC:</label>

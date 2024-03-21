@@ -13,9 +13,11 @@ import { HttpClient } from '@angular/common/http';
   styleUrl: './productos.component.css'
 })
 export class ProductosComponent {
+  success = false;
+
   productoForm = this.fb.group({
     clave: ['', Validators.required],
-    nombre: ['', Validators.required],
+    nombreProducto: ['', Validators.required],
     descripcion: ['', Validators.required],
     precio: ['', [Validators.required, this.decimalValidator]],
   });
@@ -34,7 +36,7 @@ export class ProductosComponent {
       this.http.post('http://localhost:8080/api/v1/productos', formData).subscribe(
         (response) => {
           console.log('Datos enviados con éxito:', response);
-         
+         this.success = true;
         },
         (error) => {
           console.error('Error al enviar los datos:', error);

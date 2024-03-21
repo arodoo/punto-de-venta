@@ -1,12 +1,12 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, FormArray, Validators } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 
 interface Producto {
-  id: number;
-  nombre: string;
+  clave: number;
+  nombreProducto: string;
 }
 
 @Component({
@@ -18,10 +18,19 @@ interface Producto {
 })
 export class VentaComponent {
   ventaForm: FormGroup;
-  listaProductos: Producto[] = [
-    {id: 1, nombre: 'Producto 1'},
-    {id: 2, nombre: 'Producto 2'},
-  ];
+  listaProductos: Producto[] = [];
+
+  ngOnInit(): void {
+    this.http.get<Producto[]>('http://localhost:8080/api/v1/productos').subscribe(
+        (response) => {
+          console.log('Datos enviados con éxito:', response);
+          this.listaProductos = response; // Asignación de los datos recibidos a listaProductos
+        },
+        (error) => {
+          console.error('Error al enviar los datos:', error);
+        }
+      );
+  }
 
   constructor(private fb: FormBuilder,private http: HttpClient) {
     this.ventaForm = this.fb.group({
@@ -50,7 +59,7 @@ export class VentaComponent {
       this.http.post('http://localhost:8080/api/v1/Venta', formData).subscribe(
         (response) => {
           console.log('Datos enviados con éxito:', response);
-         
+          this.generatePDF(response)
         },
         (error) => {
           console.error('Error al enviar los datos:', error);
@@ -60,5 +69,9 @@ export class VentaComponent {
     } else {
       console.log('Formulario no válido');
     }
+  }
+
+  generatePDF(datos: any) {
+    return this.http.post('http://localhost:8080/generate-pdf', datos, { responseType: 'blob' });
   }
 }
