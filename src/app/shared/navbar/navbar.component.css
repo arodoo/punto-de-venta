@@ -1,0 +1,30 @@
+/* Estilos base para el navbar */
+.navbar {
+  background-color: #343a40; /* Un color de fondo más oscuro para un look más ejecutivo */
+  border-bottom: 2px solid #ffdd57; /* Una línea delgada en la parte inferior para un toque elegante */
+}
+
+/* Estilo para la marca del navbar */
+.navbar-brand {
+  color: #ffdd57; /* Un color que contraste bien con el fondo oscuro */
+  font-weight: bold; /* Hacer la marca más notoria */
+}
+
+/* Estilos para los enlaces del navbar */
+.nav-link {
+  color: #ffffff; /* Color claro para los enlaces para que resalten sobre el fondo oscuro */
+  margin-right: 15px; /* Espaciado entre enlaces */
+}
+
+.nav-link:hover {
+  color: #ffdd57; /* Cambiar el color al pasar el mouse para un efecto interactivo */
+}
+
+/* Estilo para el botón del toggler en pantallas pequeñas */
+.navbar-toggler {
+  border-color: #ffdd57; /* Color del borde del botón para que sea visible */
+}
+
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255,221,87, 0.5)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E"); /* Personalizar el icono del toggler */
+}

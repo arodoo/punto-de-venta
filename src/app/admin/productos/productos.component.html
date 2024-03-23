@@ -2,36 +2,40 @@
   <div *ngIf="success" class="alert alert-success">
     Producto guardado correctamente
   </div>
-    <h1>Agregar producto</h1><br>
-    <form [formGroup]="productoForm" (ngSubmit)="onSubmit()">
-        <div class="form-group">
-            <label for="clave">Clave:</label>
-            <input type="text" class="form-control" id="clave" formControlName="clave" placeholder="clave">
-          </div><br>
-      <div class="form-group">
-        <label for="nombre">Nombre:</label>
-        <input type="text" class="form-control" id="nombre" formControlName="nombreProducto" placeholder="Nombre del producto">
-      </div><br>
-      
-      <div class="form-group">
-        <label for="descripcion">Descripción:</label>
-        <input type="text" class="form-control" id="descripcion" formControlName="descripcion" placeholder="Ingresa una descripcion">
-      </div><br>
+  <h1>Agregar producto</h1><br>
+  <form [formGroup]="productoForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="clave">Clave:</label>
+      <input type="text" class="form-control" id="clave" formControlName="clave" placeholder="clave">
+    </div><br>
+    <div class="form-group">
+      <label for="nombre">Nombre:</label>
+      <input type="text" class="form-control" id="nombre" formControlName="nombreProducto"
+        placeholder="Nombre del producto">
+    </div><br>
 
-      <div class="form-group">
-        <label for="precio">Precio:</label>
-        <input type="text" class="form-control" id="precio" formControlName="precio" placeholder="Ingresa el precio">
+    <div class="form-group">
+      <label for="descripcion">Descripción:</label>
+      <input type="text" class="form-control" id="descripcion" formControlName="descripcion"
+        placeholder="Ingresa una descripcion">
+    </div><br>
+
+    <div class="form-group">
+      <label for="precio">Precio:</label>
+      <input type="text" class="form-control" id="precio" formControlName="precio" placeholder="Ingresa el precio">
+    </div>
+    <div *ngIf="productoForm.controls.precio.valid; else errorBlock" class="text-success">
+      El precio es correcto.
+    </div>
+    <ng-template #errorBlock>
+      <div *ngIf="productoForm.get('precio')!.touched && productoForm.get('precio')!.errors?.['invalidNumber']"
+        class="text-danger">
+        El precio debe tener exactamente dos decimales.
       </div>
-      <div *ngIf="productoForm.controls.precio.valid; else errorBlock" class="text-success">
-        El precio es correcto.
-      </div>
-      <ng-template #errorBlock>
-        <div *ngIf="productoForm.controls.precio.errors?.['invalidNumber']" class="text-danger">
-          El precio debe tener exactamente dos decimales.
-        </div>
-      </ng-template><br>
-      
-      <button type="submit" class="btn btn-primary" [disabled]="!productoForm.valid">Enviar</button>
-    </form>
-  </div>
-  
+
+
+    </ng-template><br>
+
+    <button type="submit" class="btn btn-primary" [disabled]="!productoForm.valid">Enviar</button>
+  </form>
+</div>

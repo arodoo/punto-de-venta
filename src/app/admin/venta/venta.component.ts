@@ -54,7 +54,7 @@ export class VentaComponent {
   }
 
   onSubmit() {
-        if (this.ventaForm.valid) {
+/*         if (this.ventaForm.valid) {
       const formData = this.ventaForm.value;
       this.http.post('http://localhost:8080/api/v1/Venta', formData).subscribe(
         (response) => {
@@ -68,7 +68,8 @@ export class VentaComponent {
       );
     } else {
       console.log('Formulario no válido');
-    }
+    } */
+    console.log(this.ventaForm.value);
   }
 
   generatePDF(datos: any) {

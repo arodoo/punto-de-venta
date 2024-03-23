@@ -1,0 +1,17 @@
+.container {
+    position: relative;
+    /* Posicionamiento relativo para el contenedor */
+}
+
+.router-outlet-wrapper {
+    position: absolute;
+    /* Posicionamiento absoluto para el wrapper */
+    top: 60%;
+    /* Centrado vertical */
+    left: 35%;
+    /* Centrado horizontal */
+    /* Ajuste fino para el centrado perfecto */
+    width: 100%;
+    /* Ancho completo para evitar que sea demasiado delgado */
+    margin-top: 30px;
+}

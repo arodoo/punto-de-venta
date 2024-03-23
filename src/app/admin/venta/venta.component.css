@@ -1,0 +1,71 @@
+/* Estilos base para el contenedor del formulario */
+.mt-3 {
+    background-color: #f8f9fa;
+    /* Un color de fondo claro para el contraste */
+    padding: 20px;
+    /* Espaciado interno para una mejor presentación */
+    border-radius: 5px;
+    /* Bordes redondeados para un look moderno */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    /* Sombra sutil para profundidad */
+    width: 40%;
+    /* Ancho definido para el contenedor */
+}
+
+/* Estilo para los títulos dentro del formulario */
+h1 {
+    color: #343a40;
+    /* Color oscuro para el título, similar al navbar */
+    margin-bottom: 20px;
+    /* Espaciado después del título */
+}
+
+/* Estilos para las etiquetas de los campos del formulario */
+label {
+    color: #495057;
+    /* Color oscuro para las etiquetas */
+    font-weight: 500;
+    /* Peso de la fuente para destacar las etiquetas */
+}
+
+/* Estilos para los campos de entrada */
+.form-control {
+    border: 1px solid #ced4da;
+    /* Borde sutil para los campos de entrada */
+    border-radius: 0.25rem;
+    /* Bordes redondeados para los campos de entrada */
+}
+
+/* Estilo para los mensajes de éxito */
+.alert-success {
+    color: #155724;
+    /* Color verde oscuro para el texto */
+    background-color: #d4edda;
+    /* Color verde claro para el fondo */
+    border-color: #c3e6cb;
+    /* Color verde para el borde */
+    border-radius: 0.25rem;
+    /* Bordes redondeados para la alerta */
+    margin-bottom: 20px;
+    /* Espaciado después de la alerta */
+}
+
+/* Estilo para el botón de envío */
+.btn-primary {
+    background-color: #0069d9;
+    /* Color azul para el botón */
+    border-color: #0062cc;
+    /* Color azul ligeramente más oscuro para el borde */
+    padding: 10px 15px;
+    /* Espaciado interno para un botón más grande */
+    font-size: 1rem;
+    /* Tamaño de la fuente para que sea fácil de leer */
+    border-radius: 0.25rem;
+    /* Bordes redondeados para el botón */
+}
+
+/* Estilo para los mensajes de error */
+.text-danger {
+    color: #dc3545;
+    /* Color rojo para indicar errores */
+}
